@@ -3263,11 +3263,15 @@ exit:
 	return ret;
 }
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,17,0)
+// Patch set_wiphy_params
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 17, 0))
 static int cfg80211_rtw_set_wiphy_params(struct wiphy *wiphy, int ifindex, u32 changed)
 #else
 static int cfg80211_rtw_set_wiphy_params(struct wiphy *wiphy, u32 changed)
 #endif
+
+// Patch set_txpower & get_txpower: tambah 'struct wiphy *wiphy,' di awal signature
+// untuk kernel >= 6.17.0
 {
 #if 0
 	struct iwm_priv *iwm = wiphy_to_iwm(wiphy);
