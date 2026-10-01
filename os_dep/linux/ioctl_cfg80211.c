@@ -3264,7 +3264,7 @@ exit:
 }
 
 // Patch set_wiphy_params
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 17, 0))
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 18, 0))
 static int cfg80211_rtw_set_wiphy_params(struct wiphy *wiphy, int ifindex, u32 changed)
 #else
 static int cfg80211_rtw_set_wiphy_params(struct wiphy *wiphy, u32 changed)
